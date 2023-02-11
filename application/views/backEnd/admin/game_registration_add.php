@@ -22,7 +22,7 @@
                     <div class="form-group">
                       <div class="col-sm-12">
                         <label><?php echo $this->lang->line('game_name'); ?>* </label>
-                        <input name="game_name"   placeholder="<?php echo $this->lang->line('game_name'); ?> " class="form-control inner_shadow_teal" type="text" required="">
+                        <input name="game_name" placeholder="<?php echo $this->lang->line('game_name'); ?> " class="form-control inner_shadow_teal" type="text" required="">
                       </div>
                     </div>
                   </div>
@@ -62,7 +62,7 @@
                     <div class="form-group">
                       <div class="col-sm-12">
                         <label><?php echo $this->lang->line('opening_date'); ?> </label>
-                        <input name="opening_date" id="date" placeholder="<?php echo $this->lang->line('opening_date'); ?> " class="form-control inner_shadow_teal " type="text" autocomplete="off">
+                        <input name="opening_date"  id="date" placeholder="<?php echo $this->lang->line('opening_date'); ?> " class="form-control inner_shadow_teal " type="text" autocomplete="off">
                       </div>
                     </div>
                   </div>
@@ -72,7 +72,7 @@
                     <div class="form-group">
                       <div class="col-sm-12">
                         <label><?php echo $this->lang->line('application_last_date'); ?> </label>
-                        <input name="application_last_date" id="date1" placeholder="<?php echo $this->lang->line('application_last_date'); ?> " class="form-control inner_shadow_teal " type="text" autocomplete="off">
+                        <input name="application_last_date" id="date1" autocomplete="off" placeholder="<?php echo $this->lang->line('application_last_date'); ?> " class="form-control inner_shadow_teal " type="text" autocomplete="off">
                       </div>
                     </div>
                   </div>
@@ -134,9 +134,7 @@
                     <div class="col-sm-12">
                       <label><?php echo $this->lang->line('pre_division_id'); ?> </label>
                       <select name="division_id" id="pre_division_id" class="form-control select2">
-                        <?php foreach ($divissions as $key => $value) { ?>
-                          <option value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
-                        <?php } ?>
+                        <option value=""><?php echo $this->lang->line('select_a_division'); ?></option>
                       </select>
                     </div>
                   </div>
@@ -147,9 +145,7 @@
                     <div class="col-sm-12">
                       <label><?php echo $this->lang->line('pre_zilla_id'); ?> </label>
                       <select name="zilla_id" id="pre_zilla_id" class="form-control select2">
-                        <?php foreach ($zilla as $key => $value) { ?>
-                          <option value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
-                        <?php } ?>
+                        <option value=""><?php echo $this->lang->line('select_division_first'); ?></option>
                       </select>
                     </div>
                   </div>
@@ -159,23 +155,22 @@
                   <div class="form-group">
                     <div class="col-sm-12">
                       <label><?php echo $this->lang->line('pre_upozilla_id'); ?> </label>
-                      <select name="upozilla_id" id="pre_upozilla_id" class="form-control select2">
-                        <?php foreach ($upozilla as $key => $value) { ?>
-                          <option value="<?php echo $value->id ?>"><?php echo $value->name ?></option>
-                        <?php } ?>
+
+                      <select name='upozilla_id' id='pre_upozilla_id' class='form-control select2'>
+                        <option value="" class="form-control select2"><?php echo $this->lang->line('select_district_first'); ?></option>
                       </select>
                     </div>
                   </div>
                 </div>
                 <!-- Full Address  -->
                 <div class="col-md-3">
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <label><?php echo $this->lang->line('full_address'); ?> </label>
-                        <input name="full_address" value="<?php echo $this->lang->line('full_address'); ?>" placeholder="<?php echo $this->lang->line('full_address'); ?> " class="form-control inner_shadow_teal" type="text">
-                      </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <label><?php echo $this->lang->line('full_address'); ?> </label>
+                      <input name="full_address" value="<?php echo $this->lang->line('full_address'); ?>" placeholder="<?php echo $this->lang->line('full_address'); ?> " class="form-control inner_shadow_teal" type="text">
                     </div>
                   </div>
+                </div>
 
                 <!-- contact_person_name -->
                 <h4 style="text-align: center; font-size: 23px; font-weight: bold; padding-bottom: 5px;">Contact Person</h4>
@@ -260,7 +255,7 @@
       changeYear: true,
       changeMonth: true,
       dateFormat: "dd M yy",
-      yearRange: "-10:+10"
+      yearRange: "-5:+5"
     });
   });
   $(document).ready(function() {
@@ -269,7 +264,7 @@
       changeYear: true,
       changeMonth: true,
       dateFormat: "dd M yy",
-      yearRange: "-10:+10"
+      yearRange: "-5:+5"
     });
   });
 </script>
@@ -326,14 +321,12 @@
   }
 
   function loadZilla(divisionId) {
-
     $.post("<?php echo base_url() . "admin/get_zilla_from_division/"; ?>" + divisionId, {
         'nothing': 'nothing'
       },
       function(data2) {
         var data = JSON.parse(data2);
         $.each(data, function(i, item) {
-
           $("#pre_zilla_id").append($('<option>', {
             value: this.id,
             text: this.name,
@@ -349,7 +342,6 @@
       function(data2) {
         var data = JSON.parse(data2);
         $.each(data, function(i, item) {
-
           $("#pre_upozilla_id").append($('<option>', {
             value: this.id,
             text: this.name,

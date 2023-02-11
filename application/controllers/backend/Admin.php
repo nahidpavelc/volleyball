@@ -28,11 +28,9 @@ class Admin extends CI_Controller
 
 	public function index()
 	{
-
 		$data['title']      = 'Admin Panel • HRSOFTBD News Portal Admin Panel';
 		$data['page']       = 'backEnd/dashboard_view';
 		$data['activeMenu'] = 'dashboard_view';
-
 
 		$this->load->view('backEnd/master_page', $data);
 	}
@@ -768,7 +766,6 @@ class Admin extends CI_Controller
 	}
 
 	// category ajax load 
-
 	public function load_member_category_ajax()
 	{
 		$data = array();
@@ -914,8 +911,6 @@ class Admin extends CI_Controller
 	//Slider
 	public function slider()
 	{
-
-
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			$update_slider['title']         		= $this->input->post('title', true);
@@ -1034,6 +1029,7 @@ class Admin extends CI_Controller
 
 		$this->load->view('backEnd/master_page', $data);
 	}
+
 	public function testimonial($param1 = 'add', $param2 = '', $param3 = '')
 	{
 		if ($param1 == 'add') {
@@ -1998,8 +1994,10 @@ class Admin extends CI_Controller
 
 			if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$insert_data['game_name'] = $this->input->post('game_name', true);
-				$insert_data['opening_date'] = $this->input->post('opening_date', true);
-				$insert_data['application_last_date'] = $this->input->post('application_last_date', true);
+
+				$insert_data['opening_date'] = date('Y-m-d', strtotime($this->input->post('opening_date', true)));
+				$insert_data['application_last_date'] = date('Y-m-d', strtotime($this->input->post('application_last_date', true)));
+
 				$insert_data['team_gender'] = $this->input->post('team_gender', true);
 				$insert_data['facebook_link'] = $this->input->post('facebook_link', true);
 				$insert_data['youtube_link'] = $this->input->post('youtube_link', true);
@@ -2064,20 +2062,19 @@ class Admin extends CI_Controller
 		} elseif ($param1 == 'edit' && $param2 > 0) {
 
 			$check_table_row = $this->db->where('id', $param2)->get('tbl_game_registration');
-
 			if ($check_table_row->num_rows() > 0) {
-
 				$data['get_game_list'] = $check_table_row->row();
-
 				$data['team_zoon_type_list'] = $this->db->get('tbl_team_zoon_type')->result();
 
-			
 				// $data['team_list'] = $this->db->get('tbl_team_zoon_type')->result();
 
 				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$update_game_data['game_name'] = $this->input->post('game_name', true);
-					$update_game_data['opening_date'] = $this->input->post('opening_date', true);
-					$update_game_data['application_last_date'] = $this->input->post('application_last_date', true);
+
+          $update_game_data['opening_date'] = date('Y-m-d', strtotime($this->input->post('opening_date', true)));
+          $update_game_data['Application_last_date'] = date('Y-m-d', strtotime($this->input->post('application_last_date', true)));
+          
+					// $update_game_data['application_last_date'] = $this->input->post('application_last_date', true);
 					$update_game_data['team_gender'] = $this->input->post('team_gender');
 					$update_game_data['facebook_link'] = $this->input->post('facebook_link', true);
 					$update_game_data['youtube_link'] = $this->input->post('youtube_link', true);

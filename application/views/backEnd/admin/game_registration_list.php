@@ -36,7 +36,7 @@
                                           else echo base_url('assets/logo.png') ?>" alt="photo" width="50px" height="50px">
                   </td>
                   <td> <?php echo $value->game_name; ?> </td>
-                  <td> <?php echo $value->opening_date; ?> </td>
+                  <td> <?php echo date('d M Y', strtotime($value->opening_date));?> </td>
                   <td> <?php echo $value->full_address;?> </td>
                   <td> <?php echo $value->contact_person_name; ?> </td>
                   <td> <?php echo $value->contact_person_phone; ?> </td>

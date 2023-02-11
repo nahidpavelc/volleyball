@@ -101,7 +101,7 @@
                       <div class="form-group">
                         <div class="col-sm-12">
                           <label><?php echo $this->lang->line('enroll_date'); ?> </label>
-                          <input name="enroll_date" autocomplete="off" placeholder="<?php echo $this->lang->line('enrollment_date'); ?> " class="form-control inner_shadow_purple date" required="" type="text" value="<?php echo date("d M Y"); ?>">
+                          <input name="enroll_date" autocomplete="off" placeholder="<?php echo $this->lang->line('enrollment_date'); ?>" class="form-control inner_shadow_purple date" type="text">
                         </div>
                       </div>
                     </div>
