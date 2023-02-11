@@ -267,6 +267,6 @@ $lang['banner_photo']        = 'Banner Photo';
 $lang['contact_person']      = 'Contact Person';
 $lang['match_name']     = 'Match Name';
 $lang['team_name']      = 'Team Name';
-$lang[''] = '';
+$lang['gender'] = 'Gender';
 $lang[''] = '';
 $lang[''] = '';

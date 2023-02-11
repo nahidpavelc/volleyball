@@ -16,7 +16,7 @@
 
               <div class="col-md-12">
                 <h4 style="text-align: center; font-size: 23px; font-weight: bold; padding-bottom: 5px;">Game Information</h4>
-                <div class="col-md-9">
+                <div class="col-md-9" style="padding-right: 0px; padding-left: 0px">
                   <!-- game name  -->
                   <div class="col-md-4">
                     <div class="form-group">
@@ -76,8 +76,7 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- Facebook link  -->
+                  <!-- Facebook Link  -->
                   <div class="col-md-4">
                     <div class="form-group">
                       <div class="col-sm-12">
@@ -108,8 +107,8 @@
 
                 <div class="col-md-3">
                   <div class="row" style="float:none; margin:0 auto;">
-                    <div class="col-md-12">
-                      <div class="box box-teal" style="margin-left: 15px;">
+                    <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+                      <div class="box box-teal" >
                         <div class="box-header"> <label> <?php echo $this->lang->line('banner_image'); ?> </label> </div>
                         <div class="box-body box-profile">
                           <center>
